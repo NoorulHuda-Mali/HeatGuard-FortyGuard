@@ -66,7 +66,9 @@ Beyond that, it tracks:
 
 ## How the risk score is calculated
 
-FortyGuard's API (the sponsor API this was built against) provides raw environmental layers — temperature, humidity, solar/heat-index parameters — but does not compute a risk classification itself. That layer is built on top, using a heat-index style formula (temperature + humidity → apparent temperature), banded into the five levels above, in the same spirit as the National Weather Service's HeatRisk scale.
+This prototype pulls hourly temperature and humidity from a weather API and computes its own heat-index and risk-score layer on top, using a heat-index style formula (temperature + humidity → apparent temperature), banded into the five levels above, in the same spirit as the National Weather Service's HeatRisk scale.
+
+FortyGuard's environmental parameters API (temperature, humidity, solar/heat-index layers) was the intended data source for this hackathon and is the natural next integration — see the `// Swap this for a live FortyGuard-backed feed` comment in `heatRiskAgent.js` for the intended swap-in point.
 
 ## Running it locally
 
@@ -104,5 +106,5 @@ See [`TEAM.md`](./TEAM.md) for a full breakdown of what each person built.
 
 ## Acknowledgments
 
-- [FortyGuard](https://github.com/FortyGuard-Tech/temperature-api-quickstart) — environmental data API this prototype is built around.
+- [FortyGuard](https://github.com/FortyGuard-Tech/temperature-api-quickstart) — the sponsor API this project was designed around and intends to integrate as its live data source.
 - NWS HeatRisk scale — inspiration for the five-level risk banding.
